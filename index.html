@@ -15,6 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
    <style>
     body {
       margin: 0;
@@ -30,7 +32,25 @@
 
     .header {
       padding: 3em 0;
+
+
     }
+
+    .header {
+        text-align: center;
+        padding: 3em 0;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #chart {
+        width: 100%;
+        height: 600px; /* Adjust as needed */
+    }
+
+
 
     a {
       color: #f05349;
@@ -50,6 +70,7 @@
     }
 
     figcaption {
+      font-family: 'Roboto Condensed', Georgia, serif;  
       font-size: 0.8em;
       text-align: center;
       margin-top: 0.5em;
@@ -61,10 +82,12 @@
       font-weight: bold;
       font-size: 3em;
       line-height: 1.1;
+      margin-bottom: 0.5em;
     }
 
     .subhead {
-      font-family: 'Lora', Georgia, serif;
+      font-family: 'Roboto Condensed', Georgia, serif;
+      font-size: 1.5em;
     }
 
     iframe,
@@ -113,14 +136,15 @@
   <link href="scrolly-styles.css" rel="stylesheet">
   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+
 </head>
 
 <body>
   <div class="content">
+
     <div class="header">
-      <h1>Title</h1>
-      <p class="subhead">Here is the subhead or additional content you want to add in</p>
+      <h1>Who is the NBA's Smartest Team?</h1>
+      <p class="subhead">An analysis of players' college rankings</p>
     </div>
     <div class="byline">
       <p>By <a href="https://carlyschulman.com">Carly Schulman</a></p>
@@ -137,33 +161,44 @@
   </div>
   <section id="scrolly-images" class="scrolly-container">
     <div class="sticky-thing">
-      <img src="image1.jpg">
-    </div>
-    <div class="steps-container">
-      <div class="step" id="step1">
-        <div>
-          <!-- this is my d3 chart 
-
-          <div id="chart" style="display: flex; justify-content: center; align-items: center; height: 100vh;"> 
-          </div>-->
-
-          
-          <div id="chart" style="display: flex; justify-content: center; align-items: center; height: 100vh;"></div>
-          <p>Step one, adjust the CSS at the bottom of this page to change spacing between steps.</p>
-          <p>Here is some more text, in case there are multiple paragraphs.</p>
-        </div>
+        <div id="chart"></div>
       </div>
+      <div class="steps-container">
+        <div class="step" id="step1">
+          <div class="step-content">
+
+          <p>
+            
+            During the 2022-2023 NBA season, 539 players appeared in at least one game. </p>
+          
+          </div>
+        </div>
       <div class="step" id="step2">
-        <p>Find the JavaScript code near the bottom to associate each step with an image change.</p>
+        <div class="step-content">
+            <p>These players represented 135 unique colleges.</p>
+
+            <p>65 players <span style="color: #808080; font-weight: bold;">did not attend college</span> or did not attend college in the USA.</p>
+        </div>
+        
       </div>
       <div class="step" id="step3">
-        <p>By default, the steps are a set width and the text is left-centered. Find the rule in
-          <code>scrolly-styles.css</code> that refers to <code>.step > *</code> to adjust or remove the width, center
-          the text, or change the background color/opacity.
+        <p>The most well-represented college was <span style="color: #0033A0; font-weight: bold;">Kentucky</span> with 27 players, follwed closely 
+            by <span style="color: #003087; font-weight: bold;">Duke</span> with 26 players. 
+            <span style="color: #CC0033; font-weight: bold;">Arizona</span> took third place with 14 players.
         </p>
       </div>
       <div class="step" id="step4">
-        <p>Step four, lorem ipsum dolor sic amet.</p>
+        <p>87 players attended top 25 universities, including <span style="color: #8C1515; font-weight: bold;">Stanford</span> (#3), 
+            <span style="color: #003087; font-weight: bold;">Duke</span> (#7), 
+            <span style="color: #003262; font-weight: bold;">California</span> (#15), 
+            <span style="color: #2774AE; font-weight: bold;">UCLA</span> (#15), 
+            <span style="color: #866D4B; font-weight: bold;">Vanderbilt</span> (#18),
+            <span style="color: #0C2340; font-weight: bold;">Notre Dame</span> (#20), 
+            <span style="color: #00274C; font-weight: bold;">Michigan</span> (#21), 
+            <span style="color: #9F8D80; font-weight: bold;">Georgetown</span> (#22), 
+            <span style="color: #7BAFD4; font-weight: bold;">North Carolina</span> (#22) and 
+            <span style="color: #232D4B; font-weight: bold;">Virginia</span> (#24).
+        This means roughly 16% of players attended a top-25 ranked college.</p>
       </div>
       <div class="step" id="step5">
         <p>Step five, lorem ipsum dolor sic amet.</p>
@@ -177,17 +212,19 @@
       ratione voluptatem sequi nesciunt.</p>
     <figure>
       <img
-        src="https://static01.nyt.com/images/2024/02/01/multimedia/01eu-hungary-orban-2-ghkw/01eu-hungary-orban-2-ghkw-superJumbo.jpg?quality=75&auto=webp">
+        src="team_mean_ranking.svg" alt = "NBA Team Mean College Rankings">
       <figcaption>This is an image caption</figcaption>
     </figure>
     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
       numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
       veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
     </p>
+    <div id="chart"></div>
   </div>
   <div class="full-width">
     <figure>
       <img
+        
         src="https://static01.nyt.com/images/2024/02/01/multimedia/01eu-hungary-orban-2-ghkw/01eu-hungary-orban-2-ghkw-superJumbo.jpg?quality=75&auto=webp">
       <figcaption>This is another image caption, but this time it's a full-width image</figcaption>
     </figure>
@@ -196,81 +233,73 @@
     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
       corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
       qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+
+      <div class="flourish-embed flourish-scatter" data-src="visualisation/18960945">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+      </div>
+
     <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
       cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
       repellendus.</p>
+      
+
   </div>
   <div class="footer">
     <div class="content">
-      <p>You can find the code for this template <a href="https://github.com/jsoma/page-templates/">here</a>. Delete
-        these lines
-        when you use it, and don't forget to change the <code>title</code> tag!!!</p>
+      <p>Carly Schulman 2024</p>
     </div>
   </div>
 
+
   <script>
-    /*************
-    
-    This is the JavaScript that makes the scrolly work 
-    
-    *************/
-
-    /* 
-    This part attaches a scroll to the element with id="scrolly-images"    
-    */
     (() => {
-      const scroller = scrollama()
-
-      scroller
-        .setup({
-          parent: document.querySelector("#scrolly-images"),
-          step: ".step",
-          offset: 0.6,
-          /*
-          debug: true,
-          */
-        })
-        .onStepEnter(function ({ element, index, direction }) {
-          const event = new CustomEvent("stepin", { detail: { direction: direction } })
-          element.dispatchEvent(event)
-        })
-        .onStepExit(function ({ element, index, direction }) {
-          const event = new CustomEvent("stepout", { detail: { direction: direction } })
-          if (direction === "up" && element.previousElementSibling) {
-            const event = new CustomEvent("stepin", { detail: { direction: direction } })
-            element.previousElementSibling.dispatchEvent(event)
-          }
-        })
-
-      window.addEventListener("resize", scroller.resize)
-    })()
-
-    /*
-    This part sets up your actions. In this case, it's changing the image in the scrolly container.
-    */
-    d3.select("#step1").on('stepin', (e) => {
-      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "image1.jpg")
-    })
-
-    d3.select("#step2").on('stepin', (e) => {
-      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "image2.jpg")
-    })
-
-    d3.select("#step3").on('stepin', (e) => {
-      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "image1.jpg")
-    })
-
-    d3.select("#step4").on('stepin', (e) => {
-      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "image2.jpg")
-    })
-
-    d3.select("#step5").on('stepin', (e) => {
-      d3.select(e.target.closest(".scrolly-container")).select("img").attr("src", "image1.jpg")
-    })
-  </script>
+        const scroller = scrollama()
+    
+        scroller
+            .setup({
+                parent: document.querySelector("#scrolly-images"),
+                step: ".step",
+                offset: 0.6,
+            })
+            .onStepEnter(function ({ index, direction }) {
+                if (chartSteps) {
+                    switch(index) {
+                        case 0:
+                            chartSteps.step1();
+                            break;
+                        case 1:
+                            chartSteps.step2();
+                            break;
+                        case 2:
+                            chartSteps.step3();
+                            break;
+                        case 3:
+                            chartSteps.step4();
+                            break;
+                        case 4:
+                            chartSteps.step5();
+                            break;
+                        // Add more cases if you have more steps
+                    }
+                }
+            });
+    
+        window.addEventListener("resize", scroller.resize);
+    })();
+    </script>
   <style>
     /* Change this to adjust the padding between steps */
+    .tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    pointer-events: none;
+    z-index: 10;
+    }
+
     .step {
+        margin-top: 30vh;
       margin-bottom: 70vh;
     }
   </style>
@@ -279,65 +308,119 @@
 
 <script>
     // Function to create the visualization
-    function createVisualization(nbaPlayersData) {
-        // Sort the data: college players first, then non-college players
-        nbaPlayersData.sort((a, b) => {
-            if (a.college && !b.college) return -1;
-            if (!a.college && b.college) return 1;
-            return 0;
-        });
+    function createVisualization(selector, nbaPlayersData) {
+    const container = d3.select(selector);
+    const width = container.node().getBoundingClientRect().width;
+    const height = container.node().getBoundingClientRect().height;
+
+    const svg = container
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .style("display", "block")
+        .style("margin", "auto")
+        .append("g")
+        .attr("transform", `translate(${width/2},${height/2})`);
+
+    const rows = 30;
+    const cols = Math.ceil(nbaPlayersData.length / rows);
+    const gridSize = Math.min(width / cols, height / rows);
     
-        // Set up the SVG
-        const width = 600;
-        const height = 600;
-        const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-        const svg = d3.select("#chart")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
-    
-        // Calculate grid layout
-        const rows = 30;
-        const cols = Math.ceil(nbaPlayersData.length / rows);
-        const gridSize = Math.min((width - margin.left - margin.right) / cols, (height - margin.top - margin.bottom) / rows);
-    
-        // Create a tooltip
-        const tooltip = d3.select("body").append("div")
+    // Create a tooltip
+    const tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
     
-        // Add circles for each player
-        svg.selectAll("circle")
-            .data(nbaPlayersData)
-            .enter()
-            .append("circle")
-            .attr("cx", (d, i) => (i % cols) * gridSize + gridSize / 2)
-            .attr("cy", (d, i) => Math.floor(i / cols) * gridSize + gridSize / 2)
-            .attr("r", gridSize / 2.5)
-            .attr("fill", d => d.color)
-            .on("mouseover", function(event, d) {
+    svg.selectAll("circle")
+        .data(nbaPlayersData)
+        .enter()
+        .append("circle")
+        .attr("cx", (d, i) => ((i % cols) - (cols-1)/2) * gridSize)
+        .attr("cy", (d, i) => (Math.floor(i / cols) - (rows-1)/2) * gridSize)
+        .attr("r", gridSize / 2.5)
+        .attr("fill", "grey")  // Start with all circles grey
+        .attr("original-color", d => d.color)  // Store original color as an attribute
+        .on("mouseover", function(event, d) {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
                 tooltip.html(d.name + "<br/>" + (d.college || "No College"))
                     .style("left", (event.pageX + 5) + "px")
                     .style("top", (event.pageY - 28) + "px");
-            })
-            .on("mouseout", function(d) {
+                    
+                    // add font here
+        })
+        .on("mouseout", function(d) {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0);
             });
+    
+    // Functions to update the chart based on scroll position
+    function step1() {
+        svg.selectAll("circle")
+            .transition()
+            .duration(500)
+            .attr("fill", "grey");
+    }
+
+    function step2() {
+        svg.selectAll("circle")
+            .transition()
+            .duration(500)
+            .attr("fill", d => d.color);
+    }
+
+    function step3() {
+        svg.selectAll("circle")
+            .transition()
+            .duration(500)
+            .attr("fill", d => {
+                if (d.college === "Duke" || d.college === "Kentucky" || d.college === "Arizona") {
+                    return d.color;
+                } else {
+                    return "grey";
+                }
+            });
+    }
+
+    function step4() {
+        svg.selectAll("circle")
+            .transition()
+            .duration(500)
+            .attr("fill", d => {
+                if (d.college === "Stanford" || d.college === "Duke" ||  d.college === "Virginia" || 
+                d.college === "California" || d.college === "Vanderbilt" || d.college === "UCLA" || 
+                d.college === "Michigan" || d.college === "Notre Dame" || d.college === "Georgetown" ) {
+                    return d.color;
+                } else {
+                    return "grey";
+                }
+            });
     }
     
-    // Load the data from the external JSON file
-    d3.json("./nba_players_data.json").then(function(data) {
-        createVisualization(data);
-    }).catch(function(error) {
-        console.log("Error loading the JSON file:", error);
-    });
+    function step5() {
+        svg.selectAll("circle")
+            .transition()
+            .duration(500)
+            .attr("fill", d => d.color);
+    }
+    
+
+    // Return the step functions so they can be used in the scrollytelling setup
+    return { step1, step2, step3, step4, step5 };
+}
+
+// Load the data and set up the chart
+let chartSteps;
+d3.json("./nba_players_data.json").then(function(data) {
+    if (data && data.length > 0) {
+        chartSteps = createVisualization("#chart", data);
+    } else {
+        console.error("Data is empty or undefined");
+    }
+}).catch(function(error) {
+    console.error("Error loading the JSON file:", error);
+});
     </script>
 
 
